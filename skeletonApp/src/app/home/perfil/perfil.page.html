@@ -1,0 +1,50 @@
+<!--<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label #labelCabecera>Bienvenido!</ion-label>
+  </ion-item>
+  <div>
+    <h3>Usuario : {{data.usuario}}</h3>
+  </div>
+  <div class="ion-text-center">
+    <h2>Informacion Adicional</h2>
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-input label="Nombre" [(ngModel)]="perfil.nombre"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input label="Apellido" [(ngModel)]="perfil.apellido"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Nivel Educación" [(ngModel)]="perfil.nivel_educacion"></ion-input>
+      <ion-select placeholder="Seleccione nivel" [(ngModel)]="perfil.nivel_educacion">
+        <ion-select-option *ngFor="let niv of niveles" [value]="niv.id">{{niv.nivel}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Fecha Nacimiento" type="date" [(ngModel)]="perfil.fecha_nacimiento"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-button (click)="limpiar()">Limpiar</ion-button> <ion-button (click)="mostrar()">Mostrar</ion-button>
+    </ion-item>
+  </ion-list>
+  <mat-slider min="1" max="100" step="1" value="1" >
+    <input matSliderThumb>
+  </mat-slider>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>App desarrollada por Nicolas Muñoz PGY4121 2023</ion-title>
+  </ion-toolbar>
+</ion-footer>-->

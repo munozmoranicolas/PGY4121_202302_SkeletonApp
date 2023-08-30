@@ -13,6 +13,14 @@ const routes: Routes = [
         redirectTo: 'perfil',
         pathMatch: 'full'
       },
+      {
+        path: 'asistencia',
+        loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+      },
+      {
+        path: 'perfil',
+        loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+      }
     ]
   }
 ];
