@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AnimationController} from '@ionic/angular';
 
-
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',
@@ -11,6 +10,8 @@ import { AnimationController} from '@ionic/angular';
 })
 export class PerfilPage{
   @ViewChild('labelCabecera',{ read: ElementRef }) labelCabecera: ElementRef;
+  @ViewChild('inputNombre',{ read: ElementRef }) inputNombre: ElementRef;
+  @ViewChild('inputApellido',{ read: ElementRef }) inputApellido: ElementRef;
 
   data: any;
   niveles:any[]=[
@@ -30,10 +31,14 @@ export class PerfilPage{
   }
   
   animacion_labelCabecera: any;
+  animacion_inputs: any;
 
   constructor(private animationCtrl: AnimationController,private activeroute: ActivatedRoute, private router: Router,public alertController: AlertController) {
     this.labelCabecera = ElementRef.prototype as any;
+    this.inputNombre = ElementRef.prototype as any;
+    this.inputApellido = ElementRef.prototype as any;
     this.animacion_labelCabecera = Animation.prototype as any;
+    this.animacion_inputs = Animation.prototype as any;
     
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state) {
@@ -46,28 +51,43 @@ export class PerfilPage{
   }
 
   ngAfterViewInit() {
-    const px_screem = window.screen.width;
     this.animacion_labelCabecera = this.animationCtrl
-    .create()
+      .create()
       .addElement(this.labelCabecera.nativeElement)
       .duration(3000)
       .iterations(Infinity)
       /*.fromTo('transform', 'translateX('+px_screem/2+'px)', 'translateX('+px_screem+'px)')
       .fromTo('opacity', '1', '0.2')*/
       .keyframes([
-        { offset: 0, transform: 'translateX(0px)'},
-        { offset: 0.5, transform: `translateX(${px_screem / 2}px)` },
-        { offset: 1, transform: `translateX(${px_screem - 50}px)` },
+        { offset: 0, transform: 'translateX(0%)'},
+        { offset: 0.5, transform: `translateX(50%)` },
+        { offset: 1, transform: `translateX(100%)` },
       ])
       .fromTo('opacity', '1', '0.2');
 
-      this.animacion_labelCabecera.play();
+    this.animacion_labelCabecera.play();
+
+    this.animacion_inputs = this.animationCtrl
+      .create()
+      .addElement(this.inputNombre.nativeElement)
+      .addElement(this.inputApellido.nativeElement)
+      .duration(300)
+      .iterations(1)
+      /*.fromTo('transform', 'translateX('+px_screem/2+'px)', 'translateX('+px_screem+'px)')
+      .fromTo('opacity', '1', '0.2')*/
+      .keyframes([
+        { offset: 0, transform: 'translateX(0%)'},
+        { offset: 0.4, transform: `translateX(-2%)` },
+        { offset: 0.8, transform: `translateX(2%)` },
+        { offset: 1, transform: `translateX(0%)` },
+      ])
   }
 
   limpiar(){
     for (var [key, value] of Object.entries(this.perfil)) {
       Object.defineProperty(this.perfil,key,{value:""})
     }
+    this.animacion_inputs.play();
   }
 
   mostrar(){
