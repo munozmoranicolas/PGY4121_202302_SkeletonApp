@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { AutenticacionService } from '../autenticacion.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginPage implements OnInit {
 
   field:string="";
 
-  constructor(private router: Router,public toastController: ToastController) { }
+  constructor(private router: Router,public toastController: ToastController, private auth: AutenticacionService) { }
 
   ngOnInit() {
   }
@@ -31,7 +32,7 @@ export class LoginPage implements OnInit {
             user: this.user
           }
         };
-        
+        this.auth.login(this.user.usuario,this.user.password);
         this.router.navigate(['/home'],navigationExtras);
       }
       else{

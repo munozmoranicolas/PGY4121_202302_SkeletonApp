@@ -9,8 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { NotfoundPage } from './errors/notfound/notfound.page';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,NotfoundPage],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
