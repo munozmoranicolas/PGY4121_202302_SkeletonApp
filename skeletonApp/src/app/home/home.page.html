@@ -1,22 +1,24 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
   <ion-toolbar>
     <ion-title>
-      Skeleton App
+      SkeletonAPP
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment value="mis-datos" (ionChange)="segmentChanged($event)">
+      <ion-segment-button  value="mis-datos">
+        <ion-icon name="home"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="experiencias">
+        <ion-icon name="briefcase-outline"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="certificaciones">
+        <ion-icon name="school-outline"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <!--<ion-router-outlet></ion-router-outlet>-->
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="asistencia">
-        <ion-icon name="school-outline"></ion-icon>
-        <ion-label>Asistencia</ion-label>
-      </ion-tab-button>
-      <ion-tab-button tab="perfil">
-        <ion-icon name="person-circle-outline"></ion-icon>Perfil
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
 </ion-content>

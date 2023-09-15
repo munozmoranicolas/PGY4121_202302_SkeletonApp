@@ -16,7 +16,7 @@ export class FirstGuardGuard{
     console.log("--> FirstGuardGuard.canActivate()");
     if (!localStorage.getItem('isUserLoggedIn')) {
       console.log(localStorage.getItem('isUserLoggedIn'));
-      this.router.navigate(['/Login']);
+      this.router.navigate(['/login']);
       return false;
     }
     return true;

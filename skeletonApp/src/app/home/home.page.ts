@@ -8,16 +8,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomePage {
   data: any;
+  selectedSegment: string = 'mis-datos';
 
-  constructor(private activeroute: ActivatedRoute, private router: Router) {
-    this.activeroute.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation()?.extras.state) {
-        this.data = this.router.getCurrentNavigation()?.extras?.state?.['user'];
-      }
-      else{
-        this.router.navigate(["/login"])
-      }
-    });
+  constructor(private router: Router) {
+    this.router.navigate(['home/mis-datos'])
+  }
+
+  segmentChanged(event : any){
+    console.log(event.detail.value);
+    let direction=event.detail.value
+    this.router.navigate(['home/'+direction])
   }
 
 }

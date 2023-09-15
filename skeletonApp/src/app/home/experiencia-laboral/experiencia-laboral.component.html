@@ -1,0 +1,29 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Empresa</mat-label>
+    <input matInput placeholder="Duoc UC" value="">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Año Inicio</mat-label>
+    <input matInput [matDatepicker]="picker_first">
+    <mat-datepicker-toggle matIconSuffix [for]="picker_first"></mat-datepicker-toggle>
+    <mat-datepicker #picker_first></mat-datepicker>
+  </mat-form-field>
+
+  <div>¿Trabaja actualmente aqui? <mat-slide-toggle></mat-slide-toggle></div>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Año Termino</mat-label>
+    <input matInput [matDatepicker]="picker_last">
+    <mat-datepicker-toggle matIconSuffix [for]="picker_last"></mat-datepicker-toggle>
+    <mat-datepicker #picker_last></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Cargo</mat-label>
+    <input matInput placeholder="Ingeniero Informatico" value="">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">Guardar</button>
+</form>

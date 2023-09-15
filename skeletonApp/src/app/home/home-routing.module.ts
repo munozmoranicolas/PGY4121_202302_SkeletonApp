@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePage } from './home.page';
+import { MisDatosComponent } from './mis-datos/mis-datos.component';
+import { CertificacionesComponent } from './certificaciones/certificaciones.component';
+import { ExperienciaLaboralComponent } from './experiencia-laboral/experiencia-laboral.component';
 
 
 const routes: Routes = [
@@ -9,17 +12,16 @@ const routes: Routes = [
     component: HomePage,
     children:[
       {
-        path: '',
-        redirectTo: 'perfil',
-        pathMatch: 'full'
+        path:'certificaciones',
+        component: CertificacionesComponent
       },
       {
-        path: 'asistencia',
-        loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+        path:'experiencias',
+        component: ExperienciaLaboralComponent
       },
       {
-        path: 'perfil',
-        loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+        path: 'mis-datos',
+        component: MisDatosComponent,
       }
     ]
   }
